@@ -54,7 +54,7 @@ int main() {
     //read data from file loop
     while(getline(fin, title)) {
         fin >> year;
-        fin.ignore;
+        fin.ignore();
         getline(fin, writer);
 
         //create temp Movie object
@@ -67,6 +67,13 @@ int main() {
         movieContainer.push_back(tempMovie);
     }
     fin.close();
+
+    //output contents of vector
+    cout << "--- Movie List ---" << endl;
+    for (int i = 0; i < movieContainer.size(); i++) {
+        movieContainer[i].print();
+        cout << endl;
+    }
 
     return 0;
 }
